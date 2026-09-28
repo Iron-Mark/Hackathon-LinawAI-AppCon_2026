@@ -11,11 +11,10 @@ updates:
       timezone: Asia/Manila
     open-pull-requests-limit: 5
     versioning-strategy: increase-if-necessary
-    ignore:
+    allow:
       - dependency-name: "*"
         update-types:
-          - version-update:semver-major
-          - version-update:semver-minor
+          - version-update:semver-patch
 
   - package-ecosystem: github-actions
     directory: /
@@ -26,8 +25,7 @@ updates:
       time: "09:00"
       timezone: Asia/Manila
     open-pull-requests-limit: 5
-    ignore:
+    allow:
       - dependency-name: "*"
         update-types:
-          - version-update:semver-major
-          - version-update:semver-minor
+          - version-update:semver-patch
