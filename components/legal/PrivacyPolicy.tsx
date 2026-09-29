@@ -165,7 +165,7 @@ export function PrivacyPolicy() {
       <Section title="Contact">
         Linaw is not directed at children. To ask for access, correction, or
         deletion, or to report a leak, open an issue on
-        https://github.com/Iron-Mark/appcon2026-lumiere-linawai/issues. Do
+        https://github.com/Iron-Mark/Hackathon-LinawAI-AppCon_2026/issues. Do
         not paste a real personal notice into a public issue.
       </Section>
     </div>

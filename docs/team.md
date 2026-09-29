@@ -18,7 +18,7 @@ Membership was set by the organizers. The Team Portal roster is read-only.
 | John Kurt M. Tapada | Browser extension | [choookieee-dev](https://github.com/choookieee-dev) | 6 | 1,846 | 596 |
 | Franchezca Natividad Banayad | Logo, pitch deck, web app | [chezca-v](https://github.com/chezca-v) | 4 | 258 | 112 |
 
-Commits, lines added, and lines removed are GitHub’s contributor stats for [Iron-Mark/appcon-lumiere-linawai](https://github.com/Iron-Mark/appcon-lumiere-linawai), read on 29 September 2026. GitHub assigns those lines to the author of the commit. The totals include lockfiles, images, and data files, not only handwritten product code. Mark has the most commits, the most lines added, and the most lines removed. GitHub profile names are shorter or different. Use the names in this table.
+Commits, lines added, and lines removed are GitHub’s contributor stats for [Iron-Mark/Hackathon-LinawAI-AppCon_2026](https://github.com/Iron-Mark/Hackathon-LinawAI-AppCon_2026), read on 29 September 2026. GitHub assigns those lines to the author of the commit. The totals include lockfiles, images, and data files, not only handwritten product code. Mark has the most commits, the most lines added, and the most lines removed. GitHub profile names are shorter or different. Use the names in this table.
 
 Two kinds of facts are kept separate below. **Team account** is what Lumière reported and is not a commit subject. **Commit record** is what that person’s commits and the files in them show.
 
