@@ -8,7 +8,9 @@
 
 Adaptive Information Communication System: one notice, rewritten into the format each reader absorbs, then cross-examined. Gemini generation, Meaning Maps, fact alignment, actor-value binding, and DeBERTa NLI keep the intended meaning intact.
 
-[Live app](#live-app) · [Architecture](docs/architecture.md) · [Security and privacy](SECURITY.md) · [MIT License](LICENSE)
+[Live app](https://linawai.tech/) · [Demo](docs/screenshots/linaw-demo.mp4) · [About](https://linawai.tech/about) · [Architecture](docs/architecture.md) · [Team](docs/team.md) · [Security and privacy](SECURITY.md) · [MIT License](LICENSE)
+
+Lumière, AppCon 2026 team code TEAM-011, built Linaw. The contest ended on 25 September 2026. Lumière placed 7th with 73.3 points and scored 24/30 in Technology, the strongest technical score on the board. The roster, the assigned theme, and the leaderboard are in [docs/team.md](docs/team.md).
 
 ## Product overview
 
@@ -32,7 +34,7 @@ The hosted app clarifies with Gemini. If Gemini does not return a note, it uses 
 
 ## Screens
 
-Phone, tablet, and desktop frames of each screen are in [docs/screenshots](docs/screenshots). The companion panel is not in these frames.
+The AppCon demo is [docs/screenshots/linaw-demo.mp4](docs/screenshots/linaw-demo.mp4). Phone, tablet, and desktop frames of each screen are in [docs/screenshots](docs/screenshots). The companion panel is not in these frames.
 
 ![Clarify the format. Preserve the meaning.](docs/screenshots/linaw-walkthrough.gif)
 
@@ -178,6 +180,8 @@ Verdict language is deliberately cautious ("No issue found in these checks.", "T
 | `evals/`            | Golden campus-pilot case, seeded corruption, fidelity cases (vitest)  |
 | `nli-service/`      | Local FastAPI DeBERTa NLI verifier + evaluation scripts               |
 | `extension/`        | Manifest V3 Chrome companion                                          |
+| `docs/team.md`      | Lumière roster, assigned theme, and the AppCon leaderboard            |
+| `docs/screenshots/linaw-demo.mp4` | AppCon demo video                                          |
 | `spec/`             | Phase specifications and acceptance contracts                         |
 
 
@@ -197,7 +201,7 @@ Every model response is expected to return adapted text plus a structured Meanin
 
 Linaw AI is licensed under the MIT License. See [LICENSE](LICENSE).
 
-The license covers the software in this repository. It does not cover messages, files, or preferences a reader supplies. AppCon 2026 ended on 25 September 2026. The project continues at [https://linawai.tech](https://linawai.tech). OTis Philippines Inc., organizer of that contest, may use the source code submitted for the contest for marketing and sponsors. That use covers source code only. Packages in `node_modules` and the DeBERTa checkpoint stay under their own licenses.
+The license covers the software in this repository. It does not cover messages, files, or preferences a reader supplies. Lumière still runs the app at [https://linawai.tech](https://linawai.tech). Who built it, and how AppCon scored it, is in [docs/team.md](docs/team.md). OTis Philippines Inc., organizer of that contest, may use the source code submitted for the contest for marketing and sponsors. That use covers source code only. Packages in `node_modules` and the DeBERTa checkpoint stay under their own licenses.
 
 Privacy policy: [https://linawai.tech/privacy](https://linawai.tech/privacy).
 
