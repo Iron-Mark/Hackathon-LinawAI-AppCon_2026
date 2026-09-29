@@ -20,7 +20,7 @@ describe("fetchLinawJson", () => {
     });
     expect(fetchImpl).toHaveBeenNthCalledWith(
       2,
-      "http://127.0.0.1:3000/api/adapt",
+      "https://appcon-lumiere-linawai.vercel.app/api/adapt",
       expect.objectContaining({ method: "GET" }),
     );
   });
@@ -41,6 +41,6 @@ describe("fetchLinawJson", () => {
     );
 
     expect(result).toBeNull();
-    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    expect(fetchImpl).toHaveBeenCalledTimes(4);
   });
 });

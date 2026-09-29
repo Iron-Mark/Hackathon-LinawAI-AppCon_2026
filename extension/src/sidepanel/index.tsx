@@ -468,7 +468,7 @@ function SidePanelApp() {
       <footer className="linaw-home-footer">
         <a
           className="linaw-home-link"
-          href="https://appcon-lumiere-linawai.vercel.app/read"
+          href="https://linawai.tech/read"
           target="_blank"
           rel="noopener noreferrer"
         >

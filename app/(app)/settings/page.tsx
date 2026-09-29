@@ -97,7 +97,7 @@ export default function SettingsPage() {
           </li>
           <li className="border-t border-border">
             <Link
-              href="/legal?tab=privacy"
+              href="/privacy"
               className="font-ui group flex min-h-11 cursor-pointer items-center gap-3 px-4 py-3.5 transition-colors hover:bg-action-soft/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus"
             >
               <span className="flex min-w-0 flex-1 flex-col gap-0.5">

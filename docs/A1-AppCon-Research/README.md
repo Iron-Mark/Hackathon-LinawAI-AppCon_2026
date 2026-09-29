@@ -1,5 +1,7 @@
 # How to win AppCon 2026 ("Virtual AI Matsuri") — research and strategy
 
+**Archive.** AppCon 2026 ended on 25 September 2026. These notes are the pre-event research. They are not the plan for Linaw now. The living product is [https://linawai.tech](https://linawai.tech). Start at the repository [README](../../README.md).
+
 **Read this first if the event is tomorrow:** [06 — Strategy and 72-hour execution plan](06-strategy-and-execution-plan.md) (night-before checklist + hour-by-hour playbook), then [03 — Judging criteria decoded](03-judging-criteria-decoded.md), then [05 — Candidate ideas](05-candidate-ideas-ranked.md) §1 and §4.
 
 Status of this document set: **iteration 3 — final** (first draft → six-lens critique → merged past-winner deep-dive and comparable-hackathon/literature research). What changed between drafts is recorded in [10 — Iteration log](10-iteration-log.md).

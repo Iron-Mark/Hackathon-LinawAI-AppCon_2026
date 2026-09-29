@@ -4,7 +4,7 @@ import { allEvalCases } from "./registry";
 
 const ADAPT_URL =
   process.env.PILOT_URL ??
-  "https://appcon-lumiere-linawai.vercel.app/api/adapt";
+  "https://linawai.tech/api/adapt";
 
 const PROFILES = [
   { detail: "key_points", wording: "plain", delivery: "read", browserBehavior: "manual" },

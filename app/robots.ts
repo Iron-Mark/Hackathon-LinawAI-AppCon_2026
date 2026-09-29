@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         "/home",
       ],
     },
-    sitemap: "https://appcon-lumiere-linawai.vercel.app/sitemap.xml",
+    sitemap: "https://linawai.tech/sitemap.xml",
   };
 }

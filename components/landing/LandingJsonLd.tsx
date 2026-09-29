@@ -1,6 +1,6 @@
 import { FAQS } from "./faqs";
 
-const SITE = "https://appcon-lumiere-linawai.vercel.app";
+const SITE = "https://linawai.tech";
 const DESCRIPTION =
   "Linaw adapts a message to the reader's detail, wording, and delivery, then checks that critical meaning is still intact.";
 

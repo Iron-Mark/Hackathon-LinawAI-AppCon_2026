@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { OptionalAnalytics } from "@/components/analytics/OptionalAnalytics";
 import { Lora, Raleway } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ const description =
   "Linaw adapts a message to the reader's detail, wording, and delivery, then checks that critical meaning is still intact.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://appcon-lumiere-linawai.vercel.app"),
+  metadataBase: new URL("https://linawai.tech"),
   title: {
     default: "Linaw AI",
     template: "%s · Linaw AI",
@@ -69,6 +70,7 @@ export default function RootLayout({
         </a>
         <div id="main-content">{children}</div>
         <Analytics />
+        <OptionalAnalytics />
       </body>
     </html>
   );

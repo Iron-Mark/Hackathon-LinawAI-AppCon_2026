@@ -26,7 +26,7 @@ Linaw is not a generic chatbot, summarizer, or diagnostic tool. It is an **adapt
 
 ## Live app
 
-[https://appcon-lumiere-linawai.vercel.app/](https://appcon-lumiere-linawai.vercel.app/)
+[https://linawai.tech/](https://linawai.tech/)
 
 The hosted app clarifies with Gemini. If Gemini does not return a note, it uses the OpenAI-compatible gateway. Meaning Check sends the source sentence and the claim to `https://linaw-nli.onrender.com/predict`.
 
@@ -84,7 +84,7 @@ Then set `NLI_ENDPOINT=http://127.0.0.1:8001/predict`. When the endpoint is unse
 npm run build
 ```
 
-In Chrome, open `chrome://extensions`, enable Developer mode, choose **Load unpacked**, and select `extension/`. The extension asks `https://appcon-lumiere-linawai.vercel.app`, then `http://127.0.0.1:3000`, then `http://localhost:3000`.
+In Chrome, open `chrome://extensions`, enable Developer mode, choose **Load unpacked**, and select `extension/`. The extension asks `https://linawai.tech`, then `https://appcon-lumiere-linawai.vercel.app`, then `http://127.0.0.1:3000`, then `http://localhost:3000`.
 
 ## Validation
 
@@ -169,7 +169,7 @@ Verdict language is deliberately cautious ("No issue found in these checks.", "T
 
 | Path                | What lives there                                                      |
 | ------------------- | --------------------------------------------------------------------- |
-| `app/`              | Next.js routes: landing, onboarding, `/read`, `/content`, `/settings` |
+| `app/`              | Next.js routes: landing, onboarding, `/read`, `/content`, `/settings`, `/about`, `/privacy`, `/legal` |
 | `components/read/`  | Reading workspace, Meaning Check rail, Listen, share links, toasts    |
 | `components/sindi/` | Ray, the mascot — presentational, driven by a `state` prop            |
 | `lib/domain/`       | Zod schemas: preferences, meaning map, checks, adapt request/response |
@@ -197,7 +197,9 @@ Every model response is expected to return adapted text plus a structured Meanin
 
 Linaw AI is licensed under the MIT License. See [LICENSE](LICENSE).
 
-The license covers the software in this repository. It does not cover messages, files, or preferences a reader supplies. OTis Philippines Inc., organizer of AppCon 2026, may use that source code for marketing and sponsors. That use covers source code only. Packages in `node_modules` and the DeBERTa checkpoint stay under their own licenses.
+The license covers the software in this repository. It does not cover messages, files, or preferences a reader supplies. AppCon 2026 ended on 25 September 2026. The project continues at [https://linawai.tech](https://linawai.tech). OTis Philippines Inc., organizer of that contest, may use the source code submitted for the contest for marketing and sponsors. That use covers source code only. Packages in `node_modules` and the DeBERTa checkpoint stay under their own licenses.
+
+Privacy policy: [https://linawai.tech/privacy](https://linawai.tech/privacy).
 
 A local run without a model key still uses the offline sample. `.env.example` documents Gemini, the gateway, the semantic check, and the optional cloud account.
 

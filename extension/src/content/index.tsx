@@ -15,6 +15,7 @@ import {
   loadPreferences,
 } from "../storage/preferences";
 import { startLinawPreferenceSync } from "./prefs-sync";
+import { hasDisclosureConsent } from "../storage/disclosure";
 import { getReadingComfort } from "../storage/reading-comfort";
 import {
   clearPageReading,
@@ -836,6 +837,31 @@ details[open] > .linaw-voice-summary::before {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.linaw-disclosure {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.linaw-disclosure-copy {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--color-ink, #1a1814);
+}
+.linaw-disclosure-link {
+  color: var(--color-action, #4f5d2f);
+  font-weight: 650;
+}
+.linaw-disclosure-agree {
+  min-height: 44px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--color-action, #4f5d2f);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
 .linaw-fab {
   position: fixed;
   bottom: 20px;
@@ -1171,6 +1197,7 @@ async function openWithSelection() {
  */
 async function maybeAutoAdapt() {
   if (state.disabled) return;
+  if (!(await hasDisclosureConsent())) return;
   try {
     state.preferences = await loadPreferences();
   } catch {

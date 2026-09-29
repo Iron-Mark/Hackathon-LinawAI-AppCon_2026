@@ -28,14 +28,20 @@ export function Footer() {
         <p className="m-0 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-muted">
           <span>{`© ${year} Linaw AI. “Linaw” means clarity in Filipino.`}</span>
           <Link
+            href="/about"
+            className="inline-flex min-h-11 items-center underline-offset-2 hover:text-ink hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          >
+            About
+          </Link>
+          <Link
             href="/legal?tab=terms"
-            className="underline-offset-2 hover:text-ink hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            className="inline-flex min-h-11 items-center underline-offset-2 hover:text-ink hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
             Terms
           </Link>
           <Link
-            href="/legal?tab=privacy"
-            className="underline-offset-2 hover:text-ink hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            href="/privacy"
+            className="inline-flex min-h-11 items-center underline-offset-2 hover:text-ink hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
             Privacy
           </Link>

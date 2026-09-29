@@ -4,7 +4,13 @@
 
 Linaw AI is an adaptive information platform: a web app and Chrome companion that presents important messages the way you prefer—detail, wording, and delivery—then runs a **Meaning Check** so critical facts, conditions, and relationships are less likely to change silently.
 
-This repository is a single Next.js app at the root. `POST /api/adapt` tries Gemini, then the OpenAI-compatible gateway, then the offline fixture. A successful model answer is cached in server memory. The extension asks that same route on the local app; if the app is down, the panel uses the in-browser fixture and does not replace the page. No model key is committed to git. Do not add other API routes.
+The public site is [https://linawai.tech](https://linawai.tech). The privacy policy is [https://linawai.tech/privacy](https://linawai.tech/privacy). AppCon 2026 ended on 25 September 2026. This repository is the product that continues after that contest.
+
+This repository is a single Next.js app at the root. `POST /api/adapt` tries Gemini, then the OpenAI-compatible gateway, then the offline fixture. A successful model answer is cached in server memory. The extension asks `https://linawai.tech` first, then the previous Vercel address, then a local app. If every origin is down, the panel uses the in-browser fixture and does not replace the page. No model key is committed to git. Do not add other API routes.
+
+## Team and assigned theme
+
+Lumière, team code TEAM-011, built Linaw. The portal roster, the assigned theme, the 100-point rubric, and the final leaderboard are in [`docs/team.md`](./team.md). Lumière placed 7th with 73.3 points, and scored 24/30 in Technology, the strongest technical score on the board.
 
 ## Competition brief
 
@@ -18,7 +24,7 @@ Canonical product decisions live in:
 
 That file wins on product questions. For what this MVP slice implements, follow `spec/` (start at [`spec/AGENTS.md`](../spec/AGENTS.md), then [`spec/spec-01-initial_scaffold/README.md`](../spec/spec-01-initial_scaffold/README.md)).
 
-Research notes under [`docs/A1-AppCon-Research/`](./A1-AppCon-Research/) are background only.
+Research notes under [`docs/A1-AppCon-Research/`](./A1-AppCon-Research/) are an archive of the contest. The event is over. Do not treat that folder as the current plan.
 
 AI development workflow (tracks, ports, hooks, campus-pilot sample): [`docs/ai-workflow.md`](./ai-workflow.md).
 
@@ -72,7 +78,7 @@ node extension/build.mjs
 
 Then in Chrome: open `chrome://extensions` → enable Developer mode → **Load unpacked** → select the `extension/` folder (the one with `manifest.json`).
 
-Auto-Clarify stays off until you turn it on. There is no Chrome Web Store listing; use Load unpacked only. More detail: [`extension/README.md`](../extension/README.md).
+Auto-Clarify stays off until you turn it on. The first time the panel would send a notice, it shows what is sent and waits for **Agree and clarify**. A store listing may be in review. Load unpacked still works. More detail: [`extension/README.md`](../extension/README.md).
 
 ## Development sample
 

@@ -9,5 +9,5 @@ It offers key points or full detail, original wording, plain language, or Taglis
 Page views and a Clarify click (detail and wording only) may be counted. The pasted message is not an analytics payload.
 
 Public pages:
-- https://appcon-lumiere-linawai.vercel.app/
-- https://appcon-lumiere-linawai.vercel.app/legal
+- https://linawai.tech/
+- https://linawai.tech/legal

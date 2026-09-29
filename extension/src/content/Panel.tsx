@@ -9,6 +9,10 @@ import type {
 } from "@/lib/domain";
 import { Sindi, type SindiState } from "@/components/sindi";
 import {
+  acceptDisclosure,
+  hasDisclosureConsent,
+} from "../storage/disclosure";
+import {
   enableOrigin,
   getPreferences,
   isAutoAdaptEnabled,
@@ -65,7 +69,7 @@ import {
   splitReadingLines,
 } from "../reading-comfort/focus-line";
 
-const LINAW_PROD_READ_URL = "https://appcon-lumiere-linawai.vercel.app/read";
+const LINAW_PROD_READ_URL = "https://linawai.tech/read";
 
 /** Open the Linaw app the companion is actually talking to: local dev stays local. */
 function webAppReadUrl(): string {
@@ -337,6 +341,7 @@ export function Panel({
   );
   const [listenVoices, setListenVoices] = useState<ListenVoice[]>([]);
   const [listenNote, setListenNote] = useState<string | null>(null);
+  const [consented, setConsented] = useState<boolean | null>(null);
   const [pageFeedback, setPageFeedback] = useState<string | null>(null);
 
   const sourceRef = useRef(source);
@@ -450,16 +455,22 @@ export function Panel({
   };
 
   useEffect(() => {
+    void hasDisclosureConsent()
+      .then(setConsented)
+      .catch(() => setConsented(false));
+  }, []);
+
+  useEffect(() => {
     if (prefsDebounce.current) {
       window.clearTimeout(prefsDebounce.current);
       prefsDebounce.current = null;
     }
     setPageFeedback(null);
-    if (!isCurrentOriginDisabled) {
+    if (!isCurrentOriginDisabled && consented === true) {
       void runAdapt(preferences, source);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- runAdapt handles preference updates via controls
-  }, [source, isCurrentOriginDisabled]);
+  }, [source, isCurrentOriginDisabled, consented]);
 
   useEffect(() => {
     return () => {
@@ -733,6 +744,39 @@ export function Panel({
           </button>
         )}
       </header>
+
+      {consented === false ? (
+        <section className="linaw-disclosure" aria-label="Privacy disclosure">
+          <p className="linaw-disclosure-copy">
+            Linaw sends the text you selected and this page’s address to
+            linawai.tech to rewrite it and check that dates, conditions, and
+            who-does-what are still there. That text may also be sent to
+            Google (Gemini) and Linaw’s language check. It is not sold.
+          </p>
+          <p className="linaw-disclosure-copy">
+            <a
+              className="linaw-disclosure-link"
+              href="https://linawai.tech/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy policy
+            </a>
+          </p>
+          <button
+            type="button"
+            className="linaw-disclosure-agree"
+            onClick={() => {
+              void acceptDisclosure()
+                .then(() => setConsented(true))
+                .catch(() => setConsented(true));
+            }}
+          >
+            Agree and clarify
+          </button>
+        </section>
+      ) : consented === true ? (
+        <>
 
       {isCurrentOriginDisabled && (
         <div className="linaw-disabled-banner" role="alert">
@@ -1299,6 +1343,8 @@ export function Panel({
         <footer className="linaw-footer-origin" title={origin}>
           Site: {origin}
         </footer>
+      ) : null}
+        </>
       ) : null}
     </div>
   );

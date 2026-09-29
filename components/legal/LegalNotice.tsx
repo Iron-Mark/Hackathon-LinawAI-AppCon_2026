@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, type KeyboardEvent, type ReactNode } from "react";
+import { PrivacyPolicy } from "@/components/legal/PrivacyPolicy";
 
 type Tab = "terms" | "privacy";
 
@@ -98,10 +99,11 @@ function TermsPanel() {
         on Meaning Check is not a guarantee that every meaning survived.
       </Section>
       <Section n="2" title="Who runs it">
-        The Linaw team runs this app for AppCon 2026. OTis Philippines Inc.
-        organizes that contest. OTis does not operate your notes, and it does
-        not receive the text you paste unless you yourself send it somewhere
-        else.
+        The Linaw team runs this app at linawai.tech. We are the hackathon
+        team that built it and submitted it to AppCon 2026. That contest
+        ended on 25 September 2026. We kept the app. OTis Philippines Inc.
+        organized AppCon. OTis does not run Linaw, does not host it, and does
+        not receive the text you paste or select.
       </Section>
       <Section n="3" title="Using the app">
         An account is optional. If you add a name or email, it stays in this
@@ -116,12 +118,14 @@ function TermsPanel() {
         that text only to build the clarified note and its Meaning Check. A
         share link puts the source in the URL on purpose. Anyone who receives
         that link can read the message, the same as if you had forwarded it.
+        What is collected, stored, and shared is in the{" "}
+        <Link href="/privacy">privacy policy</Link>.
       </Section>
       <Section n="5" title="Contest code">
-        AppCon’s published judging guideline says the organizer may use
-        submitted source code for marketing and sponsors. That right covers
-        the code the team submits. It does not cover a reader’s pasted
-        messages.
+        The AppCon rules we accepted as participants say the organizer may
+        show the source code we submitted, for the contest and its sponsors.
+        That is code only. It is not a right to run Linaw, and it is not a
+        right to your notices, name, or email.
       </Section>
       <Section n="6" title="Model calls">
         With no model key, clarification stays on the offline sample adapter
@@ -137,9 +141,18 @@ function TermsPanel() {
         treat Linaw as advice you can rely on for a legal, medical, school,
         or employment decision.
       </Section>
-      <Section n="8" title="No warranty">
-        The app is a free demo. It is provided as it is. Meaning Check can
-        miss a change, and a model can be wrong. To the extent Philippine law
+      <Section n="8" title="Philippine law">
+        The Data Privacy Act of 2012 (Republic Act No. 10173) applies when a
+        message contains personal information, such as a name, a schedule, or
+        a school detail. Your rights to be informed, to access, to correct,
+        and to delete that information are described in the{" "}
+        <Link href="/privacy">privacy policy</Link>. Linaw does not publish a
+        National Privacy Commission registration number. These terms do not
+        override a right that Philippine law gives you.
+      </Section>
+      <Section n="9" title="No warranty">
+        The app is free. It is provided as it is. Meaning Check can miss a
+        change, and a model can be wrong. To the extent Philippine law
         allows, the team is not liable for loss that comes from relying on a
         clarified note. Nothing here limits liability that the law does not
         let us limit.
@@ -156,63 +169,7 @@ function PrivacyPanel() {
       aria-labelledby="legal-tab-privacy"
       className="font-ui flex flex-col gap-6 text-sm leading-relaxed text-ink sm:text-base"
     >
-      <p>
-        The Data Privacy Act of 2012 (Republic Act No. 10173) applies when a
-        message contains personal information, such as a name, a schedule, or
-        a school detail. This notice says what Linaw AI does with a message.
-        Linaw does not publish an NPC registration number.
-      </p>
-      <Section n="1" title="On this device">
-        Preferences (detail, wording, delivery, and Auto-Clarify or Manual)
-        stay in localStorage under linaw.preferences.v1. Listen speed stays
-        under linaw.listen.rate. An optional name and email stay under
-        linaw.auth.v1. Saved pieces stay under linaw.pieces.v1, up to 20,000
-        characters each, and only after you press Save on this device. The
-        extension keeps the same preference fields, plus reading display
-        choices, in chrome.storage.local. None of that is sold.
-      </Section>
-      <Section n="2" title="What can leave the device">
-        Source text is sent to Gemini or the gateway only when a model key is
-        set on the server. With no key, POST /api/adapt runs the offline
-        adapter and the text is not sent to a model. A share link leaves the
-        device when you send it, because the source is inside the URL. Listen
-        uses the browser’s speech engine. Some voices stay on the device, and
-        some send the spoken line to the browser vendor. The hosted app
-        sends the source sentence and the claim to
-        https://linaw-nli.onrender.com/predict for the semantic check. Linaw
-        does not store that exchange.
-      </Section>
-      <Section n="3" title="What we do not collect">
-        There is no advertising network. Vercel Web Analytics counts page
-        views, and a Clarify click records the detail and wording choices
-        only. The pasted message, the clarified note, and the account email
-        are not in that count. We do not sell messages. The server does not
-        write source text to disk and does not log it.
-      </Section>
-      <Section n="4" title="How long it stays">
-        A successful model answer is kept in server memory, up to 50 notes,
-        so the same source, detail, and wording are not sent again. That
-        memory is gone when the server process stops. Saved pieces stay in
-        the browser until you delete them in My Content or clear site data.
-        Sign out removes the optional name and email. Saved pieces stay until
-        you remove them.
-      </Section>
-      <Section n="5" title="The extension">
-        The companion reads page text only after you clarify a selection, or
-        after you turn Auto-Clarify on. Pending text is cleared when the
-        panel takes it. Auto-Clarify is off until you opt in. It never runs
-        silently.
-      </Section>
-      <Section n="6" title="Your choices">
-        You can delete a saved piece, sign out, or clear this site’s data in
-        the browser. That is how access, correction, and deletion work.
-        There is no separate privacy desk.
-      </Section>
-      <Section n="7" title="Children and contact">
-        Linaw is not directed at children. If you find a leak, open an issue
-        on the project repository. Do not paste a real personal message into
-        a public issue. Use the campus-pilot sample instead.
-      </Section>
+      <PrivacyPolicy />
     </article>
   );
 }

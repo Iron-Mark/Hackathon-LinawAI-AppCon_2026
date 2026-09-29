@@ -166,13 +166,16 @@ flowchart TD
 | Route | Role |
 | --- | --- |
 | `/` | landing |
+| `/about` | what Linaw does, who runs it, and one caught-mistake example |
+| `/privacy` | privacy policy (collection, use, handling, storage, sharing) |
+| `/legal` | terms, and the same privacy policy on the Privacy tab |
 | `/onboarding` | four preference questions → `PreferenceStore` |
 | `/read` | composer → note (text / glance / focus) → Meaning Check. `?piece=` saved, `?s=` shared |
 | `/content` | pieces on device |
 | `/settings` | preferences + optional local profile |
 | `/home` | redirects to `/content` |
 | `/todo` | what is connected |
-| `extension/` | MV3; same `adapt()`. The service worker tries `https://appcon-lumiere-linawai.vercel.app`, then `http://127.0.0.1:3000`, then `http://localhost:3000`. A model answer replaces the main article (selection only if it sits inside that article; Auto-Clarify replaces the whole article). A fixture answer does not. **Page as it was** restores the original words |
+| `extension/` | MV3; same `adapt()`. The service worker tries `https://linawai.tech`, then `https://appcon-lumiere-linawai.vercel.app`, then `http://127.0.0.1:3000`, then `http://localhost:3000`. The panel does not send text until the user agrees. A model answer replaces the main article (selection only if it sits inside that article; Auto-Clarify replaces the whole article). A fixture answer does not. **Page as it was** restores the original words |
 
 Share: `/read?s=<base64url>`, ≤ 4,000 source chars. Recipient's own preferences apply. PDF/text parse is client-side (`readSourceFile.ts`). Ungrounded map (no evidence substring in the pasted source) is shown as not produced from that text.
 
@@ -197,6 +200,9 @@ No database.
 | `LLM_API_BASE`, `LLM_API_KEY`, `LLM_MODEL` | fallback gateway |
 | `NLI_ENDPOINT` | Guard layer 3 (Node) |
 | `NEXT_PUBLIC_NLI_ENDPOINT` | same, browser fixture path |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager. Empty means off. If set, GA4 is not loaded separately |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4, only when Tag Manager is empty |
+| `NEXT_PUBLIC_CF_BEACON_TOKEN` | Cloudflare Web Analytics beacon. Empty means off |
 
 `.env.local` only. Keys stay in Node.
 
@@ -205,5 +211,5 @@ No database.
 - No second adapt path. No other `app/api` routes.
 - Layers stay separate; never a single score or “verified”.
 - On-screen verb is Clarify. Preference language, never labels.
-- Gateway can take ~20–30 s. `app/api/adapt` sets `maxDuration` 90 and `runtime` nodejs. Production: https://appcon-lumiere-linawai.vercel.app
+- Gateway can take ~20–30 s. `app/api/adapt` sets `maxDuration` 90 and `runtime` nodejs. Production: https://linawai.tech
 - Gateway retention is unpublished; do not send personal data through it.

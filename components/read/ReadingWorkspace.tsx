@@ -1,6 +1,7 @@
 "use client";
 
 import { track } from "@vercel/analytics";
+import { trackProductEvent } from "@/lib/analytics/optional";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -657,6 +658,10 @@ export function ReadingWorkspace({
     const source = draftSource.trim();
     if (!source) return;
     track("Clarify", {
+      detail: preferences.detail,
+      wording: preferences.wording,
+    });
+    trackProductEvent("Clarify", {
       detail: preferences.detail,
       wording: preferences.wording,
     });

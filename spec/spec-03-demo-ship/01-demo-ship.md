@@ -19,7 +19,7 @@
 - Do not commit `.env.local` or keys. Do not log source text.
 - Seeded source "All members arrive at 8:30 AM" stays on the fixture. Every other notice on the production URL must be `adapter: "model"`.
 
-**Production URL:** https://appcon-lumiere-linawai.vercel.app
+**Production URL:** https://linawai.tech
 
 ## Task 1 — Route can finish a model call
 
@@ -39,7 +39,7 @@
 
 ## Task 2b — Golden path
 
-Ran once on https://appcon-lumiere-linawai.vercel.app :
+Ran once on https://linawai.tech :
 
 1. `/onboarding` — Key Points, Plain.
 2. `/read` — Use an example → Clarify. Provenance must say a language model.

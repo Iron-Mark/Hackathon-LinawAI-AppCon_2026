@@ -8,7 +8,7 @@ AppCon scores a measured model, not a canned paragraph. These 20 runs are that m
 
 ## What was run
 
-Date of the run: the deployed app at `https://appcon-lumiere-linawai.vercel.app/api/adapt`.
+The live runner calls `https://linawai.tech/api/adapt`.
 
 Twenty committed eval notices, one call each. Profiles rotated through Key Points and Full, and through Original, Plain Language, and Taglish. The runner is `evals/pilot-20.live.test.ts`. It does not run in CI. Set `PILOT_LIVE=1` to repeat it.
 
