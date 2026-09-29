@@ -37,7 +37,7 @@ The histories overlap. Read them in this order so one person’s lines are not c
 
 Team leader. Multi-role. GitHub [Iron-Mark](https://github.com/Iron-Mark). 48 commits, 45,121 lines added, 14,973 lines removed. Span: 23–24 September 2026.
 
-**Team account.** The idea started in the team brainstorm. The team approved it, then refined it. He started the web app design, helped build the extension, connected the fallback so a notice still gets a clarification when Gemini does not answer, and managed the project.
+**Team account.** Everyone on Lumière presented an idea. Mark’s was the one the team picked, and the team continued from there. He started the web app design, helped build the extension, connected the fallback so a notice still gets a clarification when Gemini does not answer, and managed the project.
 
 **Commit record.** On 23 September his subjects are the initial commit, folding the adapt pipeline into one repo, the reading scaffold with landing, onboarding, and Ray, the landing story, deterministic fidelity checks, the app shell, and the branch model. On 24 September his subjects are the reading views (glance, focus, saved notes), the live model path, memory cache, prompts and Taglish wording, the model provider order, a reading path that posts without waiting on Gemini, extension page reading and reading comfort, wiring `NLI_ENDPOINT`, the 20-notice live pilot script, screenshots, the submission README, and `FINAL COMMIT: Appcon 2026`.
 
