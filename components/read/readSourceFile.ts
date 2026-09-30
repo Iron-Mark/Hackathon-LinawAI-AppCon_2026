@@ -142,37 +142,38 @@ async function extractPdfText(file: File): Promise<SourceFileResult> {
       disableAutoFetch: true,
       disableStream: true,
       disableRange: true,
-      isEvalSupported: false,
       useSystemFonts: true,
       // Do not follow remote font/cmap URLs.
       cMapUrl: undefined,
       standardFontDataUrl: undefined,
     });
 
-    const pdf = await loadingTask.promise;
-    if (pdf.numPages > MAX_PDF_PAGES) {
-      await pdf.destroy();
-      return {
-        ok: false,
-        error: `That PDF has too many pages. Use one with ${MAX_PDF_PAGES} pages or fewer.`,
-      };
-    }
+    try {
+      const pdf = await loadingTask.promise;
+      if (pdf.numPages > MAX_PDF_PAGES) {
+        return {
+          ok: false,
+          error: `That PDF has too many pages. Use one with ${MAX_PDF_PAGES} pages or fewer.`,
+        };
+      }
 
-    const parts: string[] = [];
-    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum += 1) {
-      const page = await pdf.getPage(pageNum);
-      const content = await page.getTextContent({
-        includeMarkedContent: false,
-      });
-      const pageText = content.items
-        .map((item) => ("str" in item ? item.str : ""))
-        .join(" ");
-      if (pageText.trim()) parts.push(pageText);
-      page.cleanup();
-    }
-    await pdf.destroy();
+      const parts: string[] = [];
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum += 1) {
+        const page = await pdf.getPage(pageNum);
+        const content = await page.getTextContent({
+          includeMarkedContent: false,
+        });
+        const pageText = content.items
+          .map((item) => ("str" in item ? item.str : ""))
+          .join(" ");
+        if (pageText.trim()) parts.push(pageText);
+        page.cleanup();
+      }
 
-    return enforceSourceLength(parts.join("\n\n"));
+      return enforceSourceLength(parts.join("\n\n"));
+    } finally {
+      await loadingTask.destroy();
+    }
   } catch {
     return { ok: false, error: "Could not read text from that PDF." };
   }
