@@ -107,10 +107,23 @@ logger.info("NLI model ready. Label mapping: %s", LABEL_MAPPING)
 
 # ---------- Request/response schema (matches route.ts exactly) ----------
 
+MAX_BATCH_SIZE = 64
+MAX_TEXT_CHARS = 4000
+
 
 class NLIPair(BaseModel):
-    text: str = Field(..., min_length=1, description="Premise / source evidence")
-    text_pair: str = Field(..., min_length=1, description="Hypothesis / adapted claim")
+    text: str = Field(
+        ...,
+        min_length=1,
+        max_length=MAX_TEXT_CHARS,
+        description="Premise / source evidence",
+    )
+    text_pair: str = Field(
+        ...,
+        min_length=1,
+        max_length=MAX_TEXT_CHARS,
+        description="Hypothesis / adapted claim",
+    )
 
     @field_validator("text", "text_pair")
     @classmethod
@@ -121,7 +134,7 @@ class NLIPair(BaseModel):
 
 
 class NLIRequest(BaseModel):
-    inputs: list[NLIPair] = Field(..., min_length=1)
+    inputs: list[NLIPair] = Field(..., min_length=1, max_length=MAX_BATCH_SIZE)
 
 
 class LabelScore(BaseModel):
