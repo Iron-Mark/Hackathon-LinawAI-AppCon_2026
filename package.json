@@ -44,9 +44,10 @@
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.71.0",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.12"
   },
   "overrides": {
+    "@vitest/mocker": "^4.1.12",
     "postcss": "8.5.28"
   }
 }
